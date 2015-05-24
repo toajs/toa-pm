@@ -1,0 +1,41 @@
+{
+  "name": "toa-pm",
+  "description": "Process events manager for toa.",
+  "authors": [
+    "Yan Qing <admin@zensh.com>"
+  ],
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:toajs/toa-pm.git"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "homepage": "https://github.com/toajs/toa-pm",
+  "keywords": [
+    "toa-module",
+    "process",
+    "server"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-jshint": "^1.10.0",
+    "gulp-mocha": "^2.0.1",
+    "gulp-sequence": "^0.3.2",
+    "mocha": "^2.2.4",
+    "toa": "^0.9.2"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "examples",
+    "gulpfile.js"
+  ]
+}
