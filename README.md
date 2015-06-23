@@ -13,25 +13,27 @@ Process events manager for toa.
 
 **Demo 1, with `defaultHandle`:**
 ```js
-var toa = require('toa');
-var pm = require('toa-pm');
+var toa = require('toa')
+var pm = require('toa-pm')
 
 var app = toa(function() {
-  this.body = 'Hello world!';
-});
+  this.body = 'Hello world!'
+})
 
-pm(app);
-app.listen(3000);
+app.listen(3000)
+pm(app)
 ```
 
 **Demo 2:**
 ```js
-var toa = require('toa');
-var pm = require('toa-pm');
+var toa = require('toa')
+var pm = require('toa-pm')
 
 var app = toa(function() {
-  this.body = 'Hello world!';
-});
+  this.body = 'Hello world!'
+})
+
+app.listen(3000)
 
 pm(app, function(message) {
   // the context is `app`
@@ -40,18 +42,19 @@ pm(app, function(message) {
   } else {
     // ...
   }
-});
-app.listen(3000);
+})
 ```
 
 **Demo 3:**
 ```js
-var toa = require('toa');
-var pm = require('toa-pm');
+var toa = require('toa')
+var pm = require('toa-pm')
 
 var app = toa(function() {
-  this.body = 'Hello world!';
+  this.body = 'Hello world!'
 });
+
+app.listen(3000)
 
 pm(app, {
   message: function(message) {
@@ -65,8 +68,7 @@ pm(app, {
   beforeExit: function() {
     // do some thing.... when process emit `beforeExit` event
   }
-});
-app.listen(3000);
+})
 ```
 
 ## Installation
@@ -78,11 +80,11 @@ npm install toa-pm
 ## API
 
   ```js
-  var pm = require('toa-pm');
+  var pm = require('toa-pm')
   ```
 ### pm(app[, handle])
 
-It will add `handle` to `process`'s `message` event, or add one more  `event-handle` to `process`.
+It will add `handle` to `process`'s `message` event, or add one more  `event-handle` to `process`. ** Use it after `app.listen` **
 
 - `app`: Toa application.
 - `handle`: {Function|Object}, if omit `handle`, the default handle will be used:
@@ -91,14 +93,13 @@ It will add `handle` to `process`'s `message` event, or add one more  `event-han
   function defaultHandle(message) {
     if (message === 'shutdown') {
       this.server.close(function() {
-        process.exit(0);
-      });
+        process.exit(0)
+      })
     }
   }
   ```
 
   Default handle accept a 'shutdown' message to stop from accepting new connections and keeps existing connections. The server is finally closed and exit gracefully when all connections are ended. For example: `pm2 gracefulReload app`
-
 
 ## License
 
