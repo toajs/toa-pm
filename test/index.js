@@ -1,13 +1,13 @@
 'use strict'
-// **Github:** https://github.com/toajs/toa-mejs
+// **Github:** https://github.com/toajs/toa-pm
 //
 // **License:** MIT
 
-/*global describe, it*/
+var tman = require('tman')
+var assert = require('assert')
 
-// var assert = require('assert')
-// var toa = require('toa')
-
-describe('toa-pm', function () {
-  it.skip('add handle', function () {})
+tman.suite('toa-pm', function () {
+  tman.it('add handle', function () {
+    assert.ok('TODO')
+  })
 })
