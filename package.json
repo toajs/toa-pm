@@ -4,14 +4,14 @@
   "authors": [
     "Yan Qing <admin@zensh.com>"
   ],
-  "version": "0.2.2",
+  "version": "1.0.0",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:toajs/toa-pm.git"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">= 4.5.0"
   },
   "homepage": "https://github.com/toajs/toa-pm",
   "keywords": [
@@ -21,9 +21,9 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "standard": "^6.0.8",
-    "tman": "^0.8.0",
-    "toa": "^1.4.2"
+    "standard": "^10.0.2",
+    "tman": "^1.6.9",
+    "toa": "^2.6.8"
   },
   "scripts": {
     "test": "standard && tman"

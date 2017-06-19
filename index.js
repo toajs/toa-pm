@@ -7,18 +7,16 @@ module.exports = function (app, handle) {
   handle = handle || defaultHandle
   if (typeof handle === 'function') handle = {message: handle}
 
-  var events = Object.keys(handle)
-  var bindHanles = {}
+  const events = Object.keys(handle)
+  const bindHanles = {}
 
-  events.forEach(function (event) {
+  events.forEach((event) => {
     bindHanles[event] = handle[event].bind(app)
     process.on(event, bindHanles[event])
   })
 
   app.server.once('close', function () {
-    events.forEach(function (event) {
-      process.removeListener(event, bindHanles[event])
-    })
+    events.forEach((event) => process.removeListener(event, bindHanles[event]))
   })
 }
 
@@ -29,8 +27,6 @@ module.exports = function (app, handle) {
  */
 function defaultHandle (message) {
   if (message === 'shutdown') {
-    this.server.close(function () {
-      process.exit(0)
-    })
+    this.server.close(() => process.exit(0))
   }
 }

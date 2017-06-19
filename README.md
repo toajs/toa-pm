@@ -1,5 +1,5 @@
-toa-pm
-====
+# toa-pm
+
 Process events manager for toa.
 
 [![NPM version][npm-image]][npm-url]
@@ -8,15 +8,16 @@ Process events manager for toa.
 
 ## [toa](https://github.com/toajs/toa)
 
-
 ### Example
 
 **Demo 1, with `defaultHandle`:**
-```js
-var toa = require('toa')
-var pm = require('toa-pm')
 
-var app = toa(function() {
+```js
+const Toa = require('toa')
+const pm = require('toa-pm')
+
+const app = new Toa()
+app.use(function() {
   this.body = 'Hello world!'
 })
 
@@ -25,11 +26,13 @@ pm(app)
 ```
 
 **Demo 2:**
-```js
-var toa = require('toa')
-var pm = require('toa-pm')
 
-var app = toa(function() {
+```js
+const Toa = require('toa')
+const pm = require('toa-pm')
+
+const app = new Toa()
+app.use(function() {
   this.body = 'Hello world!'
 })
 
@@ -46,13 +49,15 @@ pm(app, function(message) {
 ```
 
 **Demo 3:**
-```js
-var toa = require('toa')
-var pm = require('toa-pm')
 
-var app = toa(function() {
+```js
+const Toa = require('toa')
+const pm = require('toa-pm')
+
+const app = new Toa()
+app.use(function() {
   this.body = 'Hello world!'
-});
+})
 
 app.listen(3000)
 
@@ -79,9 +84,10 @@ npm install toa-pm
 
 ## API
 
-  ```js
-  var pm = require('toa-pm')
-  ```
+```js
+const pm = require('toa-pm')
+```
+
 ### pm(app[, handle])
 
 It will add `handle` to `process`'s `message` event, or add one more  `event-handle` to `process`. ** Use it after `app.listen` **
@@ -92,9 +98,7 @@ It will add `handle` to `process`'s `message` event, or add one more  `event-han
   ```js
   function defaultHandle(message) {
     if (message === 'shutdown') {
-      this.server.close(function() {
-        process.exit(0)
-      })
+      this.server.close(() => process.exit(0))
     }
   }
   ```

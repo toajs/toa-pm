@@ -3,8 +3,8 @@
 //
 // **License:** MIT
 
-var tman = require('tman')
-var assert = require('assert')
+const tman = require('tman')
+const assert = require('assert')
 
 tman.suite('toa-pm', function () {
   tman.it('add handle', function () {
